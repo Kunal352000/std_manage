@@ -12,36 +12,36 @@
   </head>
   <body>
      {%include 'student/navbar.html' %}
-    <h1 class="text-center my-3">Add New Student!</h1>
+    <h1 class="text-center my-3">Update Student!</h1>
     <div class="container">
           <div class="row">
                     <div class="col-md-6 offset-md-3">
                               <div class="card bg-info">
                               <div class="card-body">
-                                        <form action="/student/add-std/" method = "POST">
+                                        <form action="/student/do-update-std/{{std.id}}" method = "POST">
                                                   {% csrf_token %}
                                                   <div class="md-3">
                                                   <label for="roll">Roll</label>
-                                                  <input name="std_roll" type="text" id="roll" class="form-control" placeholder="Enter Your Roll" required>
+                                                  <input name="std_roll" type="text" id="roll" class="form-control" placeholder="Enter Your Roll" required value="{{std.roll}}">
                                                   </div>
                                                   <div class="md-3">
                                                          <label for="name">Name</label>
-                                                         <input name="std_name" type="text" id="name" class="form-control" placeholder="Enter your name" required > 
+                                                         <input name="std_name" type="text" id="name" class="form-control" placeholder="Enter your name" required  value="{{std.name}}"> 
                                                   </div>
                                                   <div class="md-3">
                                                             <label for="email">Email</label>
-                                                            <input name="std_email" type="text" id="email" class="form-control" placeholder="Enter your Email"> 
+                                                            <input name="std_email" type="text" id="email" class="form-control" placeholder="Enter your Email" value="{{std.email}}"> 
                                                   </div>
                                                   <div class="md-3">
                                                             <label for="address">Address</label>
-                                                            <textarea name="std_address" id="address" class="form-control"  rows="5" placeholder="Enter Your Address"></textarea> 
+                                                            <textarea name="std_address" id="address" class="form-control"  rows="5" placeholder="Enter Your Address" >{{ std.address }}</textarea> 
                                                   </div>
                                                   <div class="md-3">
                                                             <label for="phone">Phone</label>
-                                                            <input name="std_phone" type="text" id="phone" class="form-control" placeholder="Enter your Phone">
+                                                            <input name="std_phone" type="text" id="phone" class="form-control" placeholder="Enter your Phone" value="{{std.phone}}">
                                                   </div>
                                                   <div class="container text-center my-2">
-                                                            <button class="btn btn-primary">Add Student</button>
+                                                            <button class="btn btn-success">Update Student</button>
                                                   </div>
                                                   
                                         </form>

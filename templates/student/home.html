@@ -12,7 +12,50 @@
   </head>
   <body>
      {%include 'student/navbar.html' %}
-    <h1>Student Management!</h1>
+    <h1 class="text-center my-3">Student Management!</h1>
+    <h1 class="text-center my-3">List of Students</h1>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card body">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>SNO</th>
+                    <th>ROLL</th>
+                    <th>NAME</th>
+                    <th>EMAIL</th>
+                    <th>ADDRESS</th>
+                    <th>PHONE</th>
+                    <!-- <th>Update</th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for s in std %}
+                  <tr>
+                    <td>{{forloop.counter}}</td>
+                    <!-- <td>{{s.id}}</td> -->
+                    <td>{{s.roll}}</td>
+                    <td>{{s.name}}</td>
+                    <td>{{s.email}}</td>
+                    <td>{{s.address}}</td>
+                    <td>{{s.phone}}</td>
+                    <td>
+                      <a href="/student/delete-std/{{s.id}}" class="btn btn-danger md-sm">Delete</a>
+                      <a href="/student/update-std/{{s.id}}" class="btn btn-success md-sm">Update</a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
